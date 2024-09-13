@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from 'prop-types'
 import Star from "./Star";
 
 const StarRating = ({ maxRating = 5, color="#ffd700" ,size= 48, className="", messages=[], defaultRating=0 , onSetRating }) => {
@@ -22,6 +23,16 @@ const StarRating = ({ maxRating = 5, color="#ffd700" ,size= 48, className="", me
   function handleRating(rating){
     setRating(rating);
     onSetRating(rating);
+  }
+  StarRating.propTypes = {
+    maxRating: PropTypes.number,
+    defaultRating: PropTypes.number,
+    color: PropTypes.string,
+    size: PropTypes.number,
+    messages: PropTypes.array,
+    className: PropTypes.string,
+    onSetRating: PropTypes.func,
+    
   }
   return (
     <div style={stylingContainer} className={className}>
